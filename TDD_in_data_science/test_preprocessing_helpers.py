@@ -1,10 +1,16 @@
 import pytest
 import numpy as np
+import os
+from dotenv import load_dotenv
 
 from src.data.preprocessing_helpers import (row_to_list,
                                             convert_to_int,
-                                            convert_to_float,
-                                            get_data_as_numpy_array)
+                                            convert_to_float)
+from src.features.features_helpers import get_data_as_numpy_array
+
+load_dotenv()
+project_path = "PROJECT"
+default_path = "DEFAULT_PATH"
 
 
 def test_for_clean_row():
@@ -44,11 +50,12 @@ def test_convert_to_float():
 
 def test_on_clean_file():
     expected = np.array(
-      [[2081.0, 314942.0],
-       [1059.0, 186606.0],
-       [1148.0, 206186.0]]
+        [[2081.0, 314942.0],
+         [1059.0, 186606.0],
+         [1148.0, 206186.0]]
     )
-    actual = get_data_as_numpy_array("data/example_clean_data.txt", num_columns=2)
-    message = "Expected return value: {0}, Actual return value: {1}".format(expected, actual)
+    actual = get_data_as_numpy_array(os.getenv(project_path)+"/data/example_clean_data.txt")
+    message = f"Expected return value: {expected}, Actual return value: {actual}"
     # Complete the assert statement
     assert actual == pytest.approx(expected), message
+
