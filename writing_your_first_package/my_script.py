@@ -1,21 +1,21 @@
 """
 # ----- Fist way to import the package -----
 # import utils submodule
-import my_package.utils
+import text_analyzer.utils
 
 # print a description of the package
-print(help(my_package))
+print(help(text_analyzer))
 
 # Decide to start seeing other people
-my_package.utils.we_need_to_talk(break_up=True)
+text_analyzer.utils.we_need_to_talk(break_up=True)
 
 # ----- Second way of import a package -----
-from my_package import utils
+from text_analyzer import utils
 
 utils.we_need_to_talk(break_up=True)
 
 # ----- third way of import a package -----
-from my_package.utils import we_need_to_talk
+from text_analyzer.utils import we_need_to_talk
 
 we_need_to_talk(break_up=True)
 """
