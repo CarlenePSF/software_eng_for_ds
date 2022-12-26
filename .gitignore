@@ -1,11 +1,11 @@
 # created by virtualenv automatically
 **bin/
 **lib/
-*.idea/
-*intro_software_engineering_&_data_science/
-*modelos_regressao_multivariada/
-*utilizing_classes/
-*writing_your_first_package
+**.idea/
+**intro_software_engineering_&_data_science/
+**modelos_regressao_multivariada/
+**utilizing_classes/
+**writing_your_first_package
 
 ../.env
 
