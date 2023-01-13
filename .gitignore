@@ -7,6 +7,9 @@
 **utilizing_classes/
 **writing_your_first_package
 
-../.env
+*../.env
+*__pycache__
 
 pyvenv.cfg
+*.csv
+

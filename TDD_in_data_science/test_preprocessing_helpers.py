@@ -6,7 +6,8 @@ from dotenv import load_dotenv
 from src.data.preprocessing_helpers import (row_to_list,
                                             convert_to_int,
                                             convert_to_float)
-from src.features.features_helpers import get_data_as_numpy_array
+from src.features.features_helpers import (get_data_as_numpy_array,
+                                           split_into_training_and_testing_sets)
 
 load_dotenv()
 project_path = "PROJECT"
@@ -56,6 +57,23 @@ def test_on_clean_file():
     )
     actual = get_data_as_numpy_array(os.getenv(project_path)+"/data/example_clean_data.txt")
     message = f"Expected return value: {expected}, Actual return value: {actual}"
-    # Complete the assert statement
+
     assert actual == pytest.approx(expected), message
 
+
+def test_on_six_rows():
+    example_argument = np.array([[2081.0, 314942.0], [1059.0, 186606.0],
+                                 [1148.0, 206186.0], [1506.0, 248419.0],
+                                 [1210.0, 214114.0], [1697.0, 277794.0]]
+                                )
+    expected_training_array_num_rows = 4
+    expected_testing_array_num_rows = 2
+    actual = split_into_training_and_testing_sets(example_argument)
+
+    # Write the assert statement checking training array's number of rows
+    message1 = "The actual number of rows in the training array is not {}".format(expected_training_array_num_rows)
+    assert actual[0].shape[0] == expected_training_array_num_rows, message1
+
+    # Write the assert statement checking testing array's number of rows
+    message2 = "The actual number of rows in the testing array is not {}".format(expected_testing_array_num_rows)
+    assert actual[1].shape[0] == expected_testing_array_num_rows, message2

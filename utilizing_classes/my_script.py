@@ -43,6 +43,7 @@ def sum_counters(counters):
     """
     return sum(counters, Counter())
 
+
 d1 = text_analyzer.document.Document('1 2 fizz 4 buzz fizz 7 8')
 d2 = text_analyzer.document.Document('fizz buzz 11 fizz 13 14')
 print(sum_counters([d1.word_counts, d2.word_counts]))
